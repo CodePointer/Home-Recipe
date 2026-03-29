@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>点橙食堂 · Family Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --paper: #fffefb;
+      --ink: #1e1a14;
+      --ink-secondary: #6b6459;
+      --ink-tertiary: #a89f94;
+      --border: rgba(30, 26, 20, 0.1);
+      --border-light: rgba(30, 26, 20, 0.06);
+      --accent: #8b4513;
+      --accent-light: #f5ede4;
+      --festive: #c0392b;
+      --festive-light: #fdf0ee;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Sans SC', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding-bottom: 48px;
+      position: relative;
+    }
+    .header-tag {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--ink-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .header-en {
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      color: var(--ink-tertiary);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .header-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .header-ornament .line {
+      width: 80px;
+      height: 0.5px;
+      background: var(--border);
+    }
+    .header-ornament .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .section-header .line {
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+    .section-title-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+    }
+    .section-title-en {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--ink-tertiary);
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+
+    /* Subsection */
+    .subsection {
+      margin-bottom: 24px;
+    }
+    .subsection-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--ink-tertiary);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 0.5px solid var(--border-light);
+      font-weight: 400;
+    }
+
+    /* Items grid */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px 16px;
+    }
+    .item {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .item-note {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-tertiary);
+      font-weight: 300;
+      margin-top: 1px;
+    }
+
+    /* Festive section special styling */
+    .section-festive .section-header .line {
+      background: rgba(192, 57, 43, 0.2);
+    }
+    .section-festive .section-title-zh {
+      color: var(--festive);
+    }
+    .section-festive .subsection-label {
+      color: rgba(192, 57, 43, 0.5);
+      border-bottom-color: rgba(192, 57, 43, 0.1);
+    }
+    .section-festive .items-grid {
+      background: var(--festive-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    /* Accent card for cold dishes */
+    .section-cold .items-grid {
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 48px;
+    }
+    .footer-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .footer-ornament .line {
+      width: 60px;
+      height: 0.5px;
+      background: var(--border);
+    }
+    .footer-ornament .diamond {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+    .footer-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 13px;
+      color: var(--ink-tertiary);
+      letter-spacing: 0.2em;
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: white; }
+      .page { padding: 30px 20px; }
+      .header h1 { font-size: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 40px 24px 60px; }
+      .header h1 { font-size: 32px; }
+      .items-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-tag">Home Recipe Collection</div>
+    <h1>点橙食堂</h1>
+    <div class="header-en">Menu</div>
+    <div class="header-ornament">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <!-- 冷盘 -->
+  <div class="section section-cold">
+    <div class="section-header">
+      <div class="line"></div>
+      <div>
+        <span class="section-title-zh">冷盘</span>
+        <span class="section-title-en">Cold Starters</span>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="items-grid">
+      <div class="item">东北大拉皮</div>
+      <div class="item">内蒙大拌菜</div>
+      <div class="item">芥末木耳</div>
+      <div class="item">朴姐干豆腐</div>
+      <div class="item">凉拌豆腐丝</div>
+      <div class="item">麻酱黄瓜 / 豆角</div>
+      <div class="item">炝拌豆芽</div>
+      <div class="item">拍黄瓜</div>
+      <div class="item">黄瓜蘸酱</div>
+    </div>
+  </div>
+
+  <!-- 热菜 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="line"></div>
+      <div>
+        <span class="section-title-zh">热菜</span>
+        <span class="section-title-en">Main Dishes</span>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">内蒙风味</div>
+      <div class="items-grid">
+        <div class="item">炖羊肉</div>
+        <div class="item">炖牛肉</div>
+        <div class="item">山药丸子</div>
+        <div class="item">猪骨头烩酸菜</div>
+        <div class="item">焖面<span class="item-note">排骨豆角 / 排骨酸菜 / 鸡腿豆角</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">北京 · 天津风味</div>
+      <div class="items-grid">
+        <div class="item">红烧肉</div>
+        <div class="item">葱爆羊肉</div>
+        <div class="item">酱爆三丁</div>
+        <div class="item">炖肉烩菜</div>
+        <div class="item">炒合菜</div>
+        <div class="item">春卷</div>
+        <div class="item">醋溜土豆丝</div>
+        <div class="item">炝炒豆芽<span class="item-note">花椒口味</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">东北风味</div>
+      <div class="items-grid">
+        <div class="item">酸菜白肉</div>
+        <div class="item">小鸡炖蘑菇</div>
+        <div class="item">猪肉炖粉条</div>
+        <div class="item">地三鲜</div>
+        <div class="item">溜肉段</div>
+        <div class="item">尖椒干豆腐</div>
+        <div class="item">东北饭包</div>
+        <div class="item">小铝盆烤肉</div>
+        <div class="item">麻辣烫</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">新疆风味</div>
+      <div class="items-grid">
+        <div class="item">大盘鸡<span class="item-note">配拌面</span></div>
+        <div class="item">馕包肉</div>
+        <div class="item">烤羊排 / 羊腿</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">湖南风味</div>
+      <div class="items-grid">
+        <div class="item">丈母娘炒肉<span class="item-note">牛肉碎炒辣椒</span></div>
+        <div class="item">农家一碗香<span class="item-note">螺丝椒鸡蛋炒肉</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">家常菜</div>
+      <div class="items-grid">
+        <div class="item">宫保鸡丁</div>
+        <div class="item">糖醋小排</div>
+        <div class="item">可乐鸡翅</div>
+        <div class="item">红烩羊排</div>
+        <div class="item">孜然羊肉炒茼蒿</div>
+        <div class="item">羊肉泡馍</div>
+        <div class="item">葱烧豆腐</div>
+        <div class="item">家常豆腐</div>
+        <div class="item">芹菜炒豆干</div>
+        <div class="item">西红柿炒蛋</div>
+        <div class="item">荷塘小炒</div>
+        <div class="item">清炒时蔬<span class="item-note">生菜 / 小油菜 / 芥兰等</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">日式料理</div>
+      <div class="items-grid">
+        <div class="item">咖喱鸡块</div>
+        <div class="item">照烧鸡肉</div>
+        <div class="item">日式肥牛饭</div>
+        <div class="item">日式炸猪排</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">韩式料理</div>
+      <div class="items-grid">
+        <div class="item">土豆脊骨汤</div>
+        <div class="item">泡菜五花肉</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">西式料理</div>
+      <div class="items-grid">
+        <div class="item">煎牛排</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主食 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="line"></div>
+      <div>
+        <span class="section-title-zh">主食</span>
+        <span class="section-title-en">Staples</span>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">面食</div>
+      <div class="items-grid">
+        <div class="item">臊子面</div>
+        <div class="item">油泼面</div>
+        <div class="item">蘸水面</div>
+        <div class="item">清汤挂面</div>
+        <div class="item">凉面<span class="item-note">麻酱 / 花椒口味</span></div>
+        <div class="item">意面<span class="item-note">番茄肉酱 / 奶油蘑菇</span></div>
+        <div class="item">老友粉</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">饼 · 馍 · 包</div>
+      <div class="items-grid">
+        <div class="item">肉夹馍</div>
+        <div class="item">白吉馍</div>
+        <div class="item">韭菜盒子</div>
+        <div class="item">馅饼</div>
+        <div class="item">家常烙饼</div>
+        <div class="item">烤鸭饼</div>
+        <div class="item">天津煎饼</div>
+        <div class="item">鸡蛋饼</div>
+        <div class="item">芝麻烧饼</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">蒸食</div>
+      <div class="items-grid">
+        <div class="item">包子</div>
+        <div class="item">肉笼</div>
+        <div class="item">花卷</div>
+        <div class="item">馒头</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">饭 · 粥</div>
+      <div class="items-grid">
+        <div class="item">炒饭</div>
+        <div class="item">海鲜粥</div>
+        <div class="item">青菜粥</div>
+        <div class="item">小米粥</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 节日特供 -->
+  <div class="section section-festive">
+    <div class="section-header">
+      <div class="line"></div>
+      <div>
+        <span class="section-title-zh">节日特供</span>
+        <span class="section-title-en">Festive Specials</span>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">中秋 · 元宵</div>
+      <div class="items-grid">
+        <div class="item">月饼<span class="item-note">五仁</span></div>
+        <div class="item">汤圆<span class="item-note">黑芝麻</span></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">饺子</div>
+      <div class="items-grid">
+        <div class="item">猪肉韭葱</div>
+        <div class="item">猪肉茴香</div>
+        <div class="item">羊肉白菜</div>
+        <div class="item">三鲜</div>
+        <div class="item">鸡蛋西葫芦</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-ornament">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+    <div class="footer-text">产品以实物为准</div>
+  </div>
+
+</div>
+</body>
+</html>
