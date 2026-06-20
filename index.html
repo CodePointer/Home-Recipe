@@ -121,33 +121,68 @@
       margin-bottom: 24px;
     }
     .subsection-label {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--ink-tertiary);
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
       margin-bottom: 12px;
       padding-bottom: 6px;
       border-bottom: 0.5px solid var(--border-light);
+    }
+    .subsection-label-zh {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--ink-tertiary);
       font-weight: 400;
+    }
+    .subsection-label-en {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: var(--ink-tertiary);
+      opacity: 0.7;
+      font-weight: 300;
+      text-transform: uppercase;
     }
 
     /* Items grid */
     .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
     }
     .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1px;
+    }
+    .item-line-zh {
       font-size: 14px;
       color: var(--ink);
       font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.4;
+    }
+    .item-line-en {
+      font-size: 11px;
+      color: var(--ink-secondary);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.4;
     }
     .item-note {
-      display: block;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--ink-tertiary);
       font-weight: 300;
-      margin-top: 1px;
+      margin-left: 4px;
+    }
+    .item-note-en {
+      font-size: 10px;
+      color: var(--ink-tertiary);
+      font-weight: 300;
+      font-style: italic;
+      margin-left: 4px;
     }
 
     /* Festive section special styling */
@@ -158,8 +193,11 @@
       color: var(--festive);
     }
     .section-festive .subsection-label {
-      color: rgba(192, 57, 43, 0.5);
       border-bottom-color: rgba(192, 57, 43, 0.1);
+    }
+    .section-festive .subsection-label-zh,
+    .section-festive .subsection-label-en {
+      color: rgba(192, 57, 43, 0.5);
     }
     .section-festive .items-grid {
       background: var(--festive-light);
@@ -214,7 +252,6 @@
     @media (max-width: 600px) {
       .page { padding: 40px 40px 60px; }
       .header h1 { font-size: 32px; }
-      .items-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
     }
   </style>
 </head>
@@ -243,15 +280,15 @@
       <div class="line"></div>
     </div>
     <div class="items-grid">
-      <div class="item">东北大拉皮</div>
-      <div class="item">内蒙大拌菜</div>
-      <div class="item">芥末木耳</div>
-      <div class="item">朴姐干豆腐</div>
-      <div class="item">凉拌豆腐丝</div>
-      <div class="item">麻酱黄瓜 / 豆角</div>
-      <div class="item">炝拌豆芽</div>
-      <div class="item">拍黄瓜</div>
-      <div class="item">黄瓜蘸酱</div>
+      <div class="item"><div class="item-line-zh">东北大拉皮</div><div class="item-line-en">Northeastern Cold Mung Bean Noodles</div></div>
+      <div class="item"><div class="item-line-zh">内蒙大拌菜</div><div class="item-line-en">Inner Mongolian Mixed Vegetable Salad</div></div>
+      <div class="item"><div class="item-line-zh">芥末木耳</div><div class="item-line-en">Wood Ear Mushroom with Mustard</div></div>
+      <div class="item"><div class="item-line-zh">朴姐干豆腐</div><div class="item-line-en">Sister Piao's Dried Tofu</div></div>
+      <div class="item"><div class="item-line-zh">凉拌豆腐丝</div><div class="item-line-en">Cold Shredded Tofu Salad</div></div>
+      <div class="item"><div class="item-line-zh">麻酱黄瓜 / 豆角</div><div class="item-line-en">Sesame Paste Cucumber / Green Beans</div></div>
+      <div class="item"><div class="item-line-zh">炝拌豆芽</div><div class="item-line-en">Spicy Mixed Bean Sprouts</div></div>
+      <div class="item"><div class="item-line-zh">拍黄瓜</div><div class="item-line-en">Smashed Cucumber</div></div>
+      <div class="item"><div class="item-line-zh">黄瓜蘸酱</div><div class="item-line-en">Cucumber with Dipping Sauce</div></div>
     </div>
   </div>
 
@@ -267,101 +304,104 @@
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">北京 · 天津风味</div>
+      <div class="subsection-label"><span class="subsection-label-zh">北京 · 天津风味</span><span class="subsection-label-en">Beijing · Tianjin Style</span></div>
       <div class="items-grid">
-        <div class="item">红烧肉</div>
-        <div class="item">葱爆羊肉</div>
-        <div class="item">酱爆三丁</div>
-        <div class="item">炖肉烩菜</div>
-        <div class="item">炒合菜</div>
-        <div class="item">醋溜土豆丝</div>
-        <div class="item">炝炒豆芽<span class="item-note">花椒口味</span></div>
+        <div class="item"><div class="item-line-zh">红烧肉</div><div class="item-line-en">Braised Pork Belly</div></div>
+        <div class="item"><div class="item-line-zh">葱爆羊肉</div><div class="item-line-en">Scallion-Stir-Fried Lamb</div></div>
+        <div class="item"><div class="item-line-zh">酱爆三丁</div><div class="item-line-en">Diced Stir-Fry in Bean Sauce</div></div>
+        <div class="item"><div class="item-line-zh">炖肉烩菜</div><div class="item-line-en">Stewed Pork with Mixed Vegetables</div></div>
+        <div class="item"><div class="item-line-zh">炒合菜</div><div class="item-line-en">Stir-Fried Mixed Vegetables</div></div>
+        <div class="item"><div class="item-line-zh">醋溜土豆丝</div><div class="item-line-en">Vinegar Shredded Potato</div></div>
+        <div class="item"><div class="item-line-zh">炝炒豆芽<span class="item-note">花椒口味</span></div><div class="item-line-en">Sichuan Pepper Stir-Fried Bean Sprouts<span class="item-note-en">Sichuan pepper flavor</span></div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">东北风味</div>
+      <div class="subsection-label"><span class="subsection-label-zh">东北风味</span><span class="subsection-label-en">Northeastern Style</span></div>
       <div class="items-grid">
-        <div class="item">酸菜白肉</div>
-        <div class="item">小鸡炖蘑菇</div>
-        <div class="item">猪肉炖粉条</div>
-        <div class="item">地三鲜</div>
-        <div class="item">溜肉段</div>
-        <div class="item">尖椒干豆腐</div>
-        <div class="item">东北饭包</div>
-        <div class="item">小铝盆烤肉</div>
-        <div class="item">麻辣烫</div>
+        <div class="item"><div class="item-line-zh">酸菜白肉</div><div class="item-line-en">Sauerkraut with Sliced Pork</div></div>
+        <div class="item"><div class="item-line-zh">小鸡炖蘑菇</div><div class="item-line-en">Braised Chicken with Mushroom</div></div>
+        <div class="item"><div class="item-line-zh">猪肉炖粉条</div><div class="item-line-en">Braised Pork with Vermicelli</div></div>
+        <div class="item"><div class="item-line-zh">地三鲜</div><div class="item-line-en">Stir-Fried Potato, Eggplant & Pepper</div></div>
+        <div class="item"><div class="item-line-zh">溜肉段</div><div class="item-line-en">Crispy Sweet & Sour Pork</div></div>
+        <div class="item"><div class="item-line-zh">尖椒干豆腐</div><div class="item-line-en">Dried Tofu with Hot Pepper</div></div>
+        <div class="item"><div class="item-line-zh">东北饭包</div><div class="item-line-en">Northeastern Rice Wrap</div></div>
+        <div class="item"><div class="item-line-zh">小铝盆烤肉</div><div class="item-line-en">Grilled Meat in Aluminum Basin</div></div>
+        <div class="item"><div class="item-line-zh">麻辣烫</div><div class="item-line-en">Malatang</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">西北风味</div>
+      <div class="subsection-label"><span class="subsection-label-zh">西北风味</span><span class="subsection-label-en">Northwestern Style</span></div>
       <div class="items-grid">
-        <div class="item">炖羊肉</div>
-        <div class="item">炖牛肉</div>
-        <div class="item">山药丸子</div>
-        <div class="item">猪骨头烩酸菜</div>
-        <div class="item">焖面<span class="item-note">排骨豆角 / 排骨酸菜 / 鸡腿豆角</span></div>
-        <div class="item">羊肉泡馍</div>
-        <div class="item">红烩羊排</div>
+        <div class="item"><div class="item-line-zh">炖羊肉</div><div class="item-line-en">Braised Lamb</div></div>
+        <div class="item"><div class="item-line-zh">炖牛肉</div><div class="item-line-en">Braised Beef</div></div>
+        <div class="item"><div class="item-line-zh">山药丸子</div><div class="item-line-en">Yam Meatballs</div></div>
+        <div class="item"><div class="item-line-zh">猪骨头烩酸菜</div><div class="item-line-en">Pork Bone with Sauerkraut</div></div>
+        <div class="item"><div class="item-line-zh">焖面<span class="item-note">排骨豆角 / 排骨酸菜 / 鸡腿豆角</span></div><div class="item-line-en">Braised Noodles<span class="item-note-en">Ribs & Green Beans / Ribs & Sauerkraut / Chicken & Green Beans</span></div></div>
+        <div class="item"><div class="item-line-zh">羊肉泡馍</div><div class="item-line-en">Lamb Soup with Torn Flatbread</div></div>
+        <div class="item"><div class="item-line-zh">红烩羊排</div><div class="item-line-en">Red-Braised Lamb Ribs</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">新疆风味</div>
+      <div class="subsection-label"><span class="subsection-label-zh">新疆风味</span><span class="subsection-label-en">Xinjiang Style</span></div>
       <div class="items-grid">
-        <div class="item">大盘鸡<span class="item-note">配拌面</span></div>
-        <div class="item">馕包肉</div>
-        <div class="item">烤羊排 / 羊腿</div>
-        <div class="item">清炖羊汤<span class="item-note">选配麻酱蘸碟</span></div>
+        <div class="item"><div class="item-line-zh">大盘鸡<span class="item-note">配拌面</span></div><div class="item-line-en">Big Plate Chicken<span class="item-note-en">with noodles</span></div></div>
+        <div class="item"><div class="item-line-zh">馕包肉</div><div class="item-line-en">Naan with Braised Meat</div></div>
+        <div class="item"><div class="item-line-zh">烤羊排 / 羊腿</div><div class="item-line-en">Grilled Lamb Ribs / Leg</div></div>
+        <div class="item"><div class="item-line-zh">清炖羊汤<span class="item-note">选配麻酱蘸碟</span></div><div class="item-line-en">Clear Lamb Soup<span class="item-note-en">with optional sesame dip</span></div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">湖南风味</div>
+      <div class="subsection-label"><span class="subsection-label-zh">湖南风味</span><span class="subsection-label-en">Hunan Style</span></div>
       <div class="items-grid">
-        <div class="item">丈母娘炒肉<span class="item-note">牛肉碎炒辣椒</span></div>
-        <div class="item">农家一碗香<span class="item-note">螺丝椒鸡蛋炒肉</span></div>
+        <div class="item"><div class="item-line-zh">丈母娘炒肉<span class="item-note">牛肉碎炒辣椒</span></div><div class="item-line-en">Mother-in-Law's Stir-Fried Beef with Pepper<span class="item-note-en">minced beef with chili</span></div></div>
+        <div class="item"><div class="item-line-zh">农家一碗香<span class="item-note">螺丝椒鸡蛋炒肉</span></div><div class="item-line-en">Farmhouse Fragrant Bowl<span class="item-note-en">pepper, egg & pork</span></div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">家常菜</div>
+      <div class="subsection-label"><span class="subsection-label-zh">家常菜</span><span class="subsection-label-en">Home-Style Dishes</span></div>
       <div class="items-grid">
-        <div class="item">宫保鸡丁</div>
-        <div class="item">糖醋小排</div>
-        <div class="item">可乐鸡翅</div>
-        <div class="item">孜然羊肉炒茼蒿</div>
-        <div class="item">葱烧豆腐</div>
-        <div class="item">家常豆腐</div>
-        <div class="item">芹菜炒豆干</div>
-        <div class="item">西红柿炒蛋</div>
-        <div class="item">荷塘小炒</div>
-        <div class="item">时令蔬菜<span class="item-note">蒜蓉 / 清炒 / 白灼</span></div>
-          <div class="item">啫啫煲</div>
-          <div class="item">山东炒鸡</div>
-          <div class="item">蒜蓉西兰苔</div>
-          <div class="item">水煮肉片</div>
+        <div class="item"><div class="item-line-zh">宫保鸡丁</div><div class="item-line-en">Kung Pao Chicken</div></div>
+        <div class="item"><div class="item-line-zh">糖醋小排</div><div class="item-line-en">Sweet & Sour Pork Ribs</div></div>
+        <div class="item"><div class="item-line-zh">可乐鸡翅</div><div class="item-line-en">Cola Chicken Wings</div></div>
+        <div class="item"><div class="item-line-zh">孜然羊肉炒茼蒿</div><div class="item-line-en">Cumin Lamb with Chrysanthemum Greens</div></div>
+        <div class="item"><div class="item-line-zh">葱烧豆腐</div><div class="item-line-en">Scallion-Braised Tofu</div></div>
+        <div class="item"><div class="item-line-zh">家常豆腐</div><div class="item-line-en">Home-Style Tofu</div></div>
+        <div class="item"><div class="item-line-zh">芹菜炒豆干</div><div class="item-line-en">Celery with Dried Tofu</div></div>
+        <div class="item"><div class="item-line-zh">西红柿炒蛋</div><div class="item-line-en">Tomato with Scrambled Eggs</div></div>
+        <div class="item"><div class="item-line-zh">荷塘小炒</div><div class="item-line-en">Lotus Pond Stir-Fry</div></div>
+        <div class="item"><div class="item-line-zh">时令蔬菜<span class="item-note">蒜蓉 / 清炒 / 白灼</span></div><div class="item-line-en">Seasonal Vegetables<span class="item-note-en">garlic / plain stir-fried / blanched</span></div></div>
+          <div class="item"><div class="item-line-zh">啫啫煲</div><div class="item-line-en">Sizzling Clay Pot</div></div>
+          <div class="item"><div class="item-line-zh">山东炒鸡</div><div class="item-line-en">Shandong-Style Stir-Fried Chicken</div></div>
+          <div class="item"><div class="item-line-zh">蒜蓉西兰苔</div><div class="item-line-en">Garlic Broccolini</div></div>
+          <div class="item"><div class="item-line-zh">水煮肉片</div><div class="item-line-en">Sliced Pork in Spicy Broth</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">日韩料理</div>
+      <div class="subsection-label"><span class="subsection-label-zh">日韩料理</span><span class="subsection-label-en">Japanese & Korean Cuisine</span></div>
       <div class="items-grid">
-        <div class="item">咖喱鸡块</div>
-        <div class="item">照烧鸡腿排</div>
-        <div class="item">日式肥牛饭</div>
-        <div class="item">日式炸猪排</div>
-        <div class="item">土豆脊骨汤</div>
-        <div class="item">泡菜五花肉</div>
-        <div class="item">辣炒排骨</div>
+        <div class="item"><div class="item-line-zh">咖喱鸡块</div><div class="item-line-en">Curry Chicken</div></div>
+        <div class="item"><div class="item-line-zh">照烧鸡腿排</div><div class="item-line-en">Teriyaki Chicken Thigh</div></div>
+        <div class="item"><div class="item-line-zh">日式肥牛饭</div><div class="item-line-en">Japanese Beef Rice Bowl</div></div>
+        <div class="item"><div class="item-line-zh">日式炸猪排</div><div class="item-line-en">Japanese Pork Cutlet</div></div>
+        <div class="item"><div class="item-line-zh">土豆脊骨汤</div><div class="item-line-en">Pork Spine & Potato Soup</div></div>
+        <div class="item"><div class="item-line-zh">泡菜五花肉</div><div class="item-line-en">Kimchi Pork Belly</div></div>
+        <div class="item"><div class="item-line-zh">辣炒排骨</div><div class="item-line-en">Spicy Stir-Fried Ribs</div></div>
+        <div class="item"><div class="item-line-zh">三文鱼牛油果散寿司</div><div class="item-line-en">Salmon & Avocado Chirashi Sushi</div></div>
+        <div class="item"><div class="item-line-zh">土豆牛油果沙拉</div><div class="item-line-en">Potato & Avocado Salad</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">西式料理</div>
+      <div class="subsection-label"><span class="subsection-label-zh">西式料理</span><span class="subsection-label-en">Western Cuisine</span></div>
       <div class="items-grid">
-        <div class="item">煎牛排</div>
+        <div class="item"><div class="item-line-zh">煎牛排</div><div class="item-line-en">Pan-Seared Steak</div></div>
+        <div class="item"><div class="item-line-zh">香煎三文佐时蔬</div><div class="item-line-en">Pan-Seared Salmon with Seasonal Vegetables</div></div>
       </div>
     </div>
   </div>
@@ -378,50 +418,44 @@
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">面食</div>
+      <div class="subsection-label"><span class="subsection-label-zh">面食</span><span class="subsection-label-en">Noodles</span></div>
       <div class="items-grid">
-        <div class="item">臊子面</div>
-        <div class="item">油泼面</div>
-        <div class="item">蘸水面</div>
-        <div class="item">清汤挂面</div>
-        <div class="item">凉面<span class="item-note">麻酱 / 花椒口味</span></div>
-        <div class="item">意面<span class="item-note">番茄肉酱 / 奶油蘑菇</span></div>
-        <div class="item">老友粉</div>
+        <div class="item"><div class="item-line-zh">臊子面</div><div class="item-line-en">Saozi Noodles</div></div>
+        <div class="item"><div class="item-line-zh">油泼面</div><div class="item-line-en">Oil-Splashed Noodles</div></div>
+        <div class="item"><div class="item-line-zh">蘸水面</div><div class="item-line-en">Dipping Sauce Noodles</div></div>
+        <div class="item"><div class="item-line-zh">酸汤挂面</div><div class="item-line-en">Hot & Sour Noodle Soup</div></div>
+        <div class="item"><div class="item-line-zh">凉面<span class="item-note">麻酱 / 花椒口味</span></div><div class="item-line-en">Cold Noodles<span class="item-note-en">sesame paste / Sichuan pepper</span></div></div>
+        <div class="item"><div class="item-line-zh">意面<span class="item-note">番茄肉酱 / 奶油蘑菇 / 咖喱虾仁</span></div><div class="item-line-en">Pasta<span class="item-note-en">Bolognese / creamy mushroom / curry shrimp</span></div></div>
+        <div class="item"><div class="item-line-zh">老友粉</div><div class="item-line-en">Laoyou Rice Noodles</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">饼 · 馍 · 包</div>
+      <div class="subsection-label"><span class="subsection-label-zh">饼 · 馍 · 包</span><span class="subsection-label-en">Flatbreads · Mo · Buns</span></div>
       <div class="items-grid">
-        <div class="item">肉夹馍</div>
-        <div class="item">白吉馍</div>
-        <div class="item">韭菜盒子</div>
-        <div class="item">馅饼</div>
-        <div class="item">家常烙饼</div>
-        <div class="item">烤鸭饼</div>
-        <div class="item">天津煎饼</div>
-        <div class="item">鸡蛋饼</div>
-        <div class="item">芝麻烧饼</div>
+        <div class="item"><div class="item-line-zh">肉夹馍</div><div class="item-line-en">Rou Jia Mo (Chinese Burger)</div></div>
+        <div class="item"><div class="item-line-zh">白吉馍</div><div class="item-line-en">Baiji Bun</div></div>
+        <div class="item"><div class="item-line-zh">韭菜盒子</div><div class="item-line-en">Chive Pocket</div></div>
+        <div class="item"><div class="item-line-zh">馅饼</div><div class="item-line-en">Stuffed Pancake</div></div>
+        <div class="item"><div class="item-line-zh">家常烙饼</div><div class="item-line-en">Home-Style Pan Bread</div></div>
+        <div class="item"><div class="item-line-zh">烤鸭饼</div><div class="item-line-en">Peking Duck Pancake</div></div>
+        <div class="item"><div class="item-line-zh">天津煎饼</div><div class="item-line-en">Tianjin Crepe</div></div>
+        <div class="item"><div class="item-line-zh">鸡蛋饼</div><div class="item-line-en">Egg Pancake</div></div>
+        <div class="item"><div class="item-line-zh">芝麻烧饼</div><div class="item-line-en">Sesame Flatbread</div></div>
+        <div class="item"><div class="item-line-zh">肉笼</div><div class="item-line-en">Steamed Meat Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">花卷</div><div class="item-line-en">Flower Roll</div></div>
+        <div class="item"><div class="item-line-zh">馒头</div><div class="item-line-en">Steamed Mantou</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">蒸食</div>
+      <div class="subsection-label"><span class="subsection-label-zh">饭 · 粥</span><span class="subsection-label-en">Rice · Congee</span></div>
       <div class="items-grid">
-        <div class="item">包子</div>
-        <div class="item">肉笼</div>
-        <div class="item">花卷</div>
-        <div class="item">馒头</div>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <div class="subsection-label">饭 · 粥</div>
-      <div class="items-grid">
-        <div class="item">炒饭</div>
-        <div class="item">海鲜粥</div>
-        <div class="item">青菜粥</div>
-        <div class="item">小米粥</div>
+        <div class="item"><div class="item-line-zh">炒饭</div><div class="item-line-en">Fried Rice</div></div>
+        <div class="item"><div class="item-line-zh">海鲜粥</div><div class="item-line-en">Seafood Congee</div></div>
+        <div class="item"><div class="item-line-zh">青菜粥</div><div class="item-line-en">Vegetable Congee</div></div>
+        <div class="item"><div class="item-line-zh">小米粥</div><div class="item-line-en">Millet Congee</div></div>
+        <div class="item"><div class="item-line-zh">羊肉手抓饭</div><div class="item-line-en">Lamb Pilaf</div></div>
       </div>
     </div>
   </div>
@@ -437,15 +471,33 @@
       <div class="line"></div>
     </div>
 
-    <div class="subsection-label">待补充</div>
-
-    <!-- <div class="subsection">
-      <div class="subsection-label">White / Rosé</div>
+    <div class="subsection">
+      <div class="subsection-label"><span class="subsection-label-zh">Kies</span></div>
       <div class="items-grid">
-        <div class="item">Tina Moscato<span class="item-note">Kies</span></div>
-        <div class="item">Cheers to you<span class="item-note">Kies | Sparkling Shriaz</span></div>
+        <div class="item"><div class="item-line-zh">Tily Luna · White</div></div>
+        <div class="item"><div class="item-line-zh">Tina Moscato · Sparkling</div></div>
+        <div class="item"><div class="item-line-zh">Cheers To You · Sparkling</div></div>
+        <div class="item"><div class="item-line-zh">Deer Stalker Shiraz · Red</div></div>
+        <div class="item"><div class="item-line-zh">Dedication Shiraz · Red</div></div>
       </div>
-    </div> -->
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label"><span class="subsection-label-zh">Rockford</span></div>
+      <div class="items-grid">
+        <div class="item"><div class="item-line-zh">Alicante Bouchet · Red</div></div>
+        <div class="item"><div class="item-line-zh">White Frontignac · White</div></div>
+        <div class="item"><div class="item-line-zh">Rifle Range Cabernet Sauvignon · Red</div></div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label"><span class="subsection-label-zh">Beer · Cider</span></div>
+      <div class="items-grid">
+        <div class="item"><div class="item-line-zh">Hahn Ultra Zero Carb · Beer</div></div>
+        <div class="item"><div class="item-line-zh">Kopparberg · Cider</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- 节日特供 -->
@@ -460,59 +512,61 @@
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">季节限定</div>
+      <div class="subsection-label"><span class="subsection-label-zh">季节限定</span><span class="subsection-label-en">Seasonal Specials</span></div>
       <div class="items-grid">
-        <div class="item">月饼<span class="item-note">五仁</span></div>
-        <div class="item">汤圆<span class="item-note">黑芝麻</span></div>
-        <div class="item">时令海鱼<span class="item-note">当日现钓 - 清蒸 / 刺身 / 豆酱 </span></div>
+        <div class="item"><div class="item-line-zh">月饼<span class="item-note">五仁</span></div><div class="item-line-en">Mooncake<span class="item-note-en">five-nut</span></div></div>
+        <div class="item"><div class="item-line-zh">汤圆<span class="item-note">黑芝麻</span></div><div class="item-line-en">Glutinous Rice Balls<span class="item-note-en">black sesame</span></div></div>
+        <div class="item"><div class="item-line-zh">时令海鱼<span class="item-note">当日现钓 - 清蒸 / 刺身 / 豆酱</span></div><div class="item-line-en">Seasonal Sea Fish<span class="item-note-en">fresh catch - steamed / sashimi / bean paste</span></div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">饺子</div>
+      <div class="subsection-label"><span class="subsection-label-zh">饺子 · 包子</span><span class="subsection-label-en">Dumplings · Buns</span></div>
       <div class="items-grid">
-        <div class="item">猪肉韭葱</div>
-        <div class="item">猪肉茴香</div>
-        <div class="item">羊肉白菜</div>
-        <div class="item">三鲜</div>
-        <div class="item">鸡蛋西葫芦</div>
+        <div class="item"><div class="item-line-zh">猪肉韭葱</div><div class="item-line-en">Pork & Leek Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">猪肉茴香</div><div class="item-line-en">Pork & Fennel Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">羊肉白菜</div><div class="item-line-en">Lamb & Cabbage Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">三鲜</div><div class="item-line-en">Three Delicacies Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">鸡蛋西葫芦</div><div class="item-line-en">Egg & Zucchini Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">豆干白萝卜</div><div class="item-line-en">Dried Tofu & Radish Dumplings</div></div>
+        <div class="item"><div class="item-line-zh">麻辣豆腐</div><div class="item-line-en">Spicy Tofu Dumplings</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">火锅</div>
+      <div class="subsection-label"><span class="subsection-label-zh">火锅</span><span class="subsection-label-en">Hot Pot</span></div>
       <div class="items-grid">
-        <div class="item">重庆牛油锅底</div>
-        <div class="item">番茄锅底</div>
-        <div class="item">贵州酸汤锅底</div>
-        <div class="item">椰子鸡火锅</div>
-        <div class="item">红烩羊肉锅底</div>
+        <div class="item"><div class="item-line-zh">重庆牛油锅底</div><div class="item-line-en">Chongqing Beef Tallow Broth</div></div>
+        <div class="item"><div class="item-line-zh">番茄锅底</div><div class="item-line-en">Tomato Broth</div></div>
+        <div class="item"><div class="item-line-zh">贵州酸汤锅底</div><div class="item-line-en">Guizhou Sour Soup Broth</div></div>
+        <div class="item"><div class="item-line-zh">椰子鸡火锅</div><div class="item-line-en">Coconut Chicken Hot Pot</div></div>
+        <div class="item"><div class="item-line-zh">红烩羊肉锅底</div><div class="item-line-en">Red-Braised Lamb Broth</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">烤串</div>
+      <div class="subsection-label"><span class="subsection-label-zh">烤串</span><span class="subsection-label-en">Skewers</span></div>
       <div class="items-grid">
-        <div class="item">羊排串</div>
-        <div class="item">牛肋条</div>
-        <div class="item">五花肉</div>
-        <div class="item">鸡翅</div>
-        <div class="item">土豆片</div>
-        <div class="item">韭菜</div>
-        <div class="item">蘑菇</div>
-        <div class="item">茄子</div>
+        <div class="item"><div class="item-line-zh">羊排串</div><div class="item-line-en">Lamb Rib Skewer</div></div>
+        <div class="item"><div class="item-line-zh">牛肋条</div><div class="item-line-en">Beef Rib Skewer</div></div>
+        <div class="item"><div class="item-line-zh">五花肉</div><div class="item-line-en">Pork Belly Skewer</div></div>
+        <div class="item"><div class="item-line-zh">鸡翅</div><div class="item-line-en">Chicken Wing</div></div>
+        <div class="item"><div class="item-line-zh">土豆片</div><div class="item-line-en">Potato Slice</div></div>
+        <div class="item"><div class="item-line-zh">韭菜</div><div class="item-line-en">Chive</div></div>
+        <div class="item"><div class="item-line-zh">蘑菇</div><div class="item-line-en">Mushroom</div></div>
+        <div class="item"><div class="item-line-zh">茄子</div><div class="item-line-en">Eggplant</div></div>
       </div>
     </div>
 
     <div class="subsection">
-      <div class="subsection-label">春饼</div>
+      <div class="subsection-label"><span class="subsection-label-zh">春饼</span><span class="subsection-label-en">Spring Pancake</span></div>
       <div class="items-grid">
-        <div class="item">炒合菜</div>
-        <div class="item">土豆丝</div>
-        <div class="item">红烧肉</div>
-        <div class="item">炸酱</div>
-        <div class="item">鸭饼若干</div>
-        <div class="item">小米粥</div>
+        <div class="item"><div class="item-line-zh">炒合菜</div><div class="item-line-en">Stir-Fried Mixed Vegetables</div></div>
+        <div class="item"><div class="item-line-zh">土豆丝</div><div class="item-line-en">Shredded Potato</div></div>
+        <div class="item"><div class="item-line-zh">红烧肉</div><div class="item-line-en">Braised Pork Belly</div></div>
+        <div class="item"><div class="item-line-zh">炸酱</div><div class="item-line-en">Fried Bean Sauce</div></div>
+        <div class="item"><div class="item-line-zh">鸭饼若干</div><div class="item-line-en">Assorted Duck Pancakes</div></div>
+        <div class="item"><div class="item-line-zh">小米粥</div><div class="item-line-en">Millet Congee</div></div>
       </div>
     </div>
   </div>
